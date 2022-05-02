@@ -1,0 +1,154 @@
+create table Categories(
+Id int identity(1,1)primary key,
+Name nvarchar(100)
+)
+
+create table Games(
+Id int identity(1,1)primary key,
+Name nvarchar(100),
+Price float ,
+ReleaseDate datetime,
+Developer nvarchar(50),
+Description nvarchar(500),
+Publisher nvarchar(100)
+
+)
+
+create table GameCategories(
+Id int identity(1,1)primary key,
+GameId int foreign key references Games(Id),
+CategoryId int foreign key references Categories(Id)
+)
+
+---------------------------------------------
+
+insert into Categories
+(Name)
+values
+('Action'),('Role-Playing'),('Strategy'),('Action-Adventure'),('Adventure'),('Casual'),('Simulation'),('Sports'),('Racing'),('Puzzle'),('Shooter'),('Multiplayer')
+
+insert into Games
+(Name,Price,ReleaseDate,Developer,Description,Publisher)
+values
+('LEGO® Star Wars™ The Skywalker Saga',$22.99,05/04/2022,'TT Games','Play through all nine Skywalker saga films in a game unlike any other With over 300 playable characters, over 100 vehicles, and 23 planets to explore, a galaxy far, far away has never been more fun!','Warner Bros Games, Warner Bros Interactive Entertainment'),
+('The Gunk',$12.99,20/04/2022,'Image & Form Games','The Gunk is an action-adventure game in which you play as Rani part of our duo of gritty space haulers As they are struggling to bring in funds, they chance upon an untouched planet brimming with life','Thunderful Publishing'),
+('Deadly Dozen Reloaded',$14.49,29/04/2022,'N-Fusion Interactive','Deadly Dozen Reloaded is a complete remake of the original squad-based 3rd person shooter Made in a new engine with upgraded maps, graphics and missions, Reloaded takes this classic franchise and brings it to modern audiences with a bang',' Ziggurat'),
+('POSTAL 4: No Regerts',$18.49,20/04/2022,'Running With Scissors','POSTAL 4 No Regerts is a satirical and outrageous comedic open world first person shooter and the long-awaited true sequel to whats been fondly dubbed as The Worst Game Ever™, POSTAL 2!','Running With Scissors'),
+('The Stanley Parable: Ultra Deluxe',$12.49,27/04/2022,'Crows Crows Crows','The Stanley Parable: Ultra Deluxe is an expanded re-imagining of 2013s The Stanley Parable. You will play as Stanley, and you will not play as Stanley. You will make a choice, and you will become powerless','Crows Crows Crows'),
+('Sea of Thieves',$18.49,03/06/2022,'Rare LtdPUBLISHER','Sea of Thieves offers the essential pirate experience, from sailing and fighting to exploring and looting – everything you need to live the pirate life and become a legend in your own right','Xbox Game Studios'),
+('Cities Skylines',$17.49,10/03/2015,'Colossal Order Ltd','Cities Skylines is a modern take on the classic city simulation The game introduces new game play elements to realize the thrill and hardships of creating and maintaining a real city whilst expanding on some well-established tropes of the city building experience','Paradox Interactive'),
+('Aircraft Carrier Survival',$10.49,20/04/2022,'Gambit Games Studio','When the harshness of the sea meets the cruelties of war a challenge for perseverance makes itself known. And it is like none other.','CreativeForge Games'),
+('SGS Pacific D-Day',$12.49,28/04/2022,'Strategy Game Studio','One game five great battles where the US Marines gained even more glory, at the price of terrible losses. Relive bloody assaults on Saipan, Tinian, Tarawa, Iwo Jima and Peleliu in this recreation of epic land battles of the Pacific War Both sides are playable, each with their own challenge','Avalon Digital'),
+('MotoGP™22',$29.99,21/04/2022,'Milestone S.r.l.','Engines running: give the green light to the most immersive and authentic MotoGP™ gaming experience ever. Virtual and Real have never been so near in MotoGP™22!','Milestone S.r.l.'),
+('Monster Energy Supercross - The Official Videogame 5',$29.99,17/03/2022,'Milestone S.r.l.','Hold on fast to the handlebar of your bike because a new chapter of the series has finally arrived. Try Monster Energy Supercross - The Official Videogame 5 and discover the quintessence of indoor supercross!','Milestone S r l'),
+('GRID Legends',$59.99,24/02/2022,'Codemasters','GRID Legends delivers thrilling wheel-to-wheel motorsport action. Create dream race events, hop into live races, experience a dramatic virtual production story, and embrace the sensation of spectacular racing','Electronic Arts'),
+('Rush Rally Origins',$8.49,13/04/2022,'Brownmonster Limited','The definitive top down racer','Brownmonster Limited'),
+('Wing Breakers',$12.49,11/03/2022,'Gugila','Wing Breakers is extreme battle air racing mayhem with crazy cows. Survive chaotic air fights full of missile loaded planes, threatening drones and angry animals','Gugila'),
+('Grand Mountain Adventure Wonderlands',$10.49,10/03/2022,'Toppluva AB','An open-world skiing and snowboarding adventure!','Microids'),
+('THE HOUSE OF THE DEAD: Remake',$22.49,28/04/2022,'MegaPixel Studio S A','THE HOUSE OF THE DEAD Remake is a remade version of the game introduced in 1997 in arcade platform A classic arcade rail-shooter receives a whole new entourage and gameplay changes to suit modern gaming standards','Forever Entertainment S A'),
+('Turbo Overkill',$10.49,22/04/2022,'Trigger Happy Interactive','Johnny Turbo needs to clean up Paradise, a cyber city overrun by augmented minions under the cult control of the worlds most advanced AI, Syn, whos looking to expand to world domination if not stopped here and now','Apogee Entertainment'),
+('POSTAL 4 No Regerts',$18.49,20/04/2022,'Running With Scissors','POSTAL 4 No Regerts is a satirical and outrageous comedic open world first person shooter and the long-awaited true sequel to whats been fondly dubbed as The Worst Game Ever™, POSTAL 2','Running With Scissors'),
+('Squad',$22.49,23/09/2022,'Offworld Industries','Squad is a tactical FPS that provides authentic combat experiences through teamwork, constant communication, and gameplay It bridges the large gap between arcade shooter and military simulation with 100 player battles, combined arms combat, base building, and a great integrated VoIP system','Offworld Industries'),
+('Tom Clancys Rainbow Six® Siege',$10.49,20/12/2015,'Ubisoft Montreal','Tom Clancys Rainbow Six Siege is the latest installment of the acclaimed first-person shooter franchise developed by the renowned Ubisoft Montreal studio','Ubisoft')
+
+
+insert into GameCategories
+(GameId,CategoryId)
+values(1,1),(1,5),
+(2,1),(2,5),
+(3,1),(3,3),
+(4,1),(4,5),
+(5,5),(5,6),
+(6,1),(6,5),
+(7,3),(7,7),
+(8,1),(8,7),
+(9,7),(10,7),
+(10,8),(10,9),
+(11,7),(11,8),
+(11,9),(12,1),
+(12,8),(12,9),
+(13,7),(13,9),
+(14,7),(14,8),
+(15,5),(15,6),
+(15,7),(15,8),
+(15,9),(16,1),
+(16,11),(17,1),
+(17,11),(18,1),(18,5),
+(19,1),(19,7),(19,11),(19,12),
+(20,11),(20,12)
+
+
+select * from Games
+
+select * from Categories
+
+
+go
+create procedure GetAll
+As
+select Games.Name,Games.Description,Games.Price,Games.ReleaseDate,Categories.Name
+from GameCategories
+join Games
+on GameId=Games.Id
+join Categories
+on CategoryId=Categories.Id
+
+exec GetAll
+
+
+
+go 
+create procedure getfilterprice @categoryId int,@minprice float,@maxprice float
+as
+select Games.Price
+from GameCategories
+join Games
+on GameId=Games.Id 
+join Categories
+on CategoryId=Categories.Id
+where Games.Id=@categoryId
+and Games.Price>@minprice and Games.Price<@maxprice
+
+exec getfilterprice @categoryId='3',@minprice='10.99',@maxprice='22.99'
+
+
+go 
+create procedure getgamecategory @categoryname nvarchar(100)
+as
+select Categories.Name
+from GameCategories
+join Categories
+on CategoryId=Categories.Id
+join Games
+on GameId=Games.Id
+
+where Categories.Name=@categoryname
+
+
+
+exec  getgamecategory @categoryname='action'
+
+--------------------------------------------------
+go 
+create procedure getgameNameCategory @categoryname nvarchar(100),@gamename nvarchar(100)
+as
+select Categories.Name,Games.Name
+from GameCategories
+join Categories
+on CategoryId=Categories.Id
+join Games
+on GameId=Games.Id
+
+where Categories.Name=@categoryname
+and Games.Name=@gamename
+exec  getgameNameCategory  @categoryname='action',@gamename='LEGO® Star Wars™ The Skywalker Saga'
+
+
+
+select * from Games
+where Games.Price>10.99
+
+
+
+
+
